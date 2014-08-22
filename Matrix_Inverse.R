@@ -1,8 +1,8 @@
 makeCacheMatrix <- function(x = matrix()) { 
-    I<-matrix()
+    I<-NULL
     set <- function(y=matrix()) {
       x <<- y  
-      I <<- matrix()
+      I <<- NULL
     }
     get <- function() { x } 
     setMatrix <- function(solve)
@@ -12,7 +12,7 @@ makeCacheMatrix <- function(x = matrix()) {
 }
 cacheSolve <- function(x=matrix(), ...) {
   I<-x$getMatrix()
-  if(!is.na(I)){
+  if(!is.null(I)){
     message("getting cached data")
     return(I)
   }
@@ -21,3 +21,4 @@ cacheSolve <- function(x=matrix(), ...) {
   x$setMatrix(I)
   I
 }
+
